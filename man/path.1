@@ -1,0 +1,60 @@
+.TH PATH 1 "OShell Built-in Commands"
+.SH NAME
+path \- set the shell's command search path
+.SH SYNOPSIS
+.B path
+[
+.I directory ...
+]
+.SH DESCRIPTION
+The
+.B path
+command sets OShell's internal search path for finding executable commands.
+.PP
+The search path is a list of directories where OShell looks for external commands.
+Directories are searched in the order they are specified.
+.PP
+With no arguments,
+.B path
+clears the search path (no directories will be searched).
+.PP
+With directory arguments,
+.B path
+replaces the current search path with the specified directories.
+.SH OPTIONS
+.TP
+.B directory
+One or more directory paths to add to the search path.
+.SH EXAMPLES
+.TP
+.B path /bin /usr/bin
+Set search path to /bin and /usr/bin.
+.TP
+.B path /bin /usr/bin /usr/local/bin
+Set search path to three directories.
+.TP
+.B path
+Clear the search path (external commands won't be found).
+.SH DEFAULT PATH
+When OShell starts, the default path is:
+.RS
+.IP
+/bin
+.br
+/usr/bin
+.br
+/usr/local/bin
+.RE
+.SH EXIT STATUS
+Returns 0 on success.
+.SH NOTES
+.IP \(bu 2
+The path command only affects OShell's internal path, not the $PATH environment variable
+.IP \(bu 2
+Absolute paths (starting with /) and relative paths (starting with ./) bypass the search path
+.IP \(bu 2
+If the search path is empty, only commands with absolute or relative paths can be executed
+.IP \(bu 2
+Maximum of 1024 directories can be in the path
+.SH SEE ALSO
+.BR bash (1)

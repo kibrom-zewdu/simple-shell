@@ -1,0 +1,45 @@
+.TH EXIT 1 "OShell Built-in Commands"
+.SH NAME
+exit \- exit the shell
+.SH SYNOPSIS
+.B exit
+[
+.I exit_code
+]
+.SH DESCRIPTION
+The
+.B exit
+command terminates the OShell and returns an exit status to the parent process.
+.PP
+If
+.I exit_code
+is provided, it must be a numeric value that will be returned as the exit status.
+If no
+.I exit_code
+is provided, the exit status is 0 (success).
+.SH OPTIONS
+.TP
+.B exit_code
+An optional numeric exit code. Must be an integer.
+.SH EXAMPLES
+.TP
+.B exit
+Exit with status 0.
+.TP
+.B exit 0
+Exit with status 0 (success).
+.TP
+.B exit 1
+Exit with status 1 (failure).
+.TP
+.B exit 42
+Exit with status 42.
+.SH EXIT STATUS
+Returns the specified
+.I exit_code
+or 0 if none specified.
+.SH ERRORS
+If a non-numeric argument is provided, prints "An error has occurred" and returns 1.
+If more than one argument is provided, prints "An error has occurred" and returns 1.
+.SH SEE ALSO
+.BR bash (1)

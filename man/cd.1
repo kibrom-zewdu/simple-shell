@@ -1,0 +1,86 @@
+.TH CD 1 "OShell Built-in Commands"
+.SH NAME
+cd \- change the current working directory
+.SH SYNOPSIS
+.B cd
+[
+.I DIRECTORY
+]
+.SH DESCRIPTION
+The
+.B cd
+command changes the current working directory of the shell process.
+.PP
+If no
+.I DIRECTORY
+is specified, changes to the user's home directory ($HOME).
+.PP
+If
+.I DIRECTORY
+is
+.BR \- ,
+changes to the previous working directory ($OLDPWD) and prints the new directory path.
+.PP
+If
+.I DIRECTORY
+is
+.BR \-\- ,
+changes to the previous working directory ($OLDPWD) but does not print the path.
+.PP
+The environment variables
+.B PWD
+(current directory) and
+.B OLDPWD
+(previous directory) are updated after a successful change.
+.SH OPTIONS
+.TP
+.B DIRECTORY
+The directory to change to. Can be an absolute path, relative path, or special arguments
+.B \-
+or
+.BR \-\- .
+.SH EXAMPLES
+.TP
+.B cd /usr/bin
+Change to /usr/bin directory.
+.TP
+.B cd
+Change to home directory.
+.TP
+.B cd -
+Change to previous directory and print the path.
+.TP
+.B cd --
+Change to previous directory without printing.
+.TP
+.B cd ../src
+Change to src directory in parent folder.
+.SH ENVIRONMENT
+.TP
+.B HOME
+Used when no directory is specified.
+.TP
+.B OLDPWD
+Stores the previous working directory.
+.TP
+.B PWD
+Stores the current working directory (updated after cd).
+.SH EXIT STATUS
+Returns 0 on success, 1 on error.
+.SH ERRORS
+Prints "An error has occurred" if:
+.RS
+.IP \(bu 2
+More than one argument is provided
+.IP \(bu 2
+The directory does not exist
+.IP \(bu 2
+Permission is denied
+.IP \(bu 2
+$HOME is not set when no directory specified
+.IP \(bu 2
+$OLDPWD is not set when using \- or \-\-
+.RE
+.SH SEE ALSO
+.BR pwd (1),
+.BR bash (1)

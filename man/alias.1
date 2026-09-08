@@ -1,0 +1,67 @@
+.TH ALIAS 1 "OShell Built-in Commands"
+.SH NAME
+alias \- handle command aliases
+.SH SYNOPSIS
+.B alias
+[
+.I "NAME[='VALUE'] ..."
+]
+.SH DESCRIPTION
+The
+.B alias
+command manages command aliases in OShell. Aliases allow creating shortcuts for commands.
+.PP
+With no arguments,
+.B alias
+prints all defined aliases in the format NAME='VALUE'.
+.PP
+With name arguments only,
+.B alias
+prints the specified aliases.
+.PP
+With assignment syntax (NAME='VALUE'),
+.B alias
+creates or updates aliases.
+.SH OPTIONS
+.TP
+.B NAME
+The name of an alias to display (without =VALUE).
+.TP
+.B NAME='VALUE'
+Creates or updates an alias. The value can be quoted with single quotes.
+.SH EXAMPLES
+.TP
+.B alias
+List all aliases:
+.RS
+.IP
+ll='ls -la'
+.br
+myls='ls -la *.c'
+.RE
+.TP
+.B alias ll
+Display the ll alias:
+.RS
+.IP
+ll='ls -la'
+.RE
+.TP
+.B alias ll='ls -la'
+Create alias ll for 'ls -la'.
+.TP
+.B alias myls='ls -la *.c' mycp='cp -i'
+Create multiple aliases.
+.SH EXIT STATUS
+Returns 0 on success.
+.SH NOTES
+.IP \(bu 2
+Aliases are only available in the current shell session
+.IP \(bu 2
+Maximum of 100 aliases can be defined
+.IP \(bu 2
+If an alias name already exists, its value is replaced
+.IP \(bu 2
+Single quotes around values are optional but recommended for multi-word values
+.SH SEE ALSO
+.BR bash (1)

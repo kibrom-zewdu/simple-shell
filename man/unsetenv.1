@@ -1,0 +1,31 @@
+.TH UNSETENV 1 "OShell Built-in Commands"
+.SH NAME
+unsetenv \- delete an environment variable
+.SH SYNOPSIS
+.B unsetenv
+.I NAME
+.SH DESCRIPTION
+The
+.B unsetenv
+command removes an environment variable from the shell's environment.
+.PP
+If the variable does not exist, the command does nothing (no error).
+.SH OPTIONS
+.TP
+.B NAME
+The name of the environment variable to remove.
+.SH EXAMPLES
+.TP
+.B unsetenv EDITOR
+Remove the EDITOR variable.
+.TP
+.B unsetenv MYVAR
+Remove the MYVAR variable.
+.SH EXIT STATUS
+Returns 0 on success, 1 on error.
+.SH ERRORS
+Prints "An error has occurred" if incorrect number of arguments (must be exactly 1).
+.SH SEE ALSO
+.BR setenv (1),
+.BR env (1),
+.BR bash (1)

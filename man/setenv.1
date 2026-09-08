@@ -1,0 +1,45 @@
+.TH SETENV 1 "OShell Built-in Commands"
+.SH NAME
+setenv \- set or update an environment variable
+.SH SYNOPSIS
+.B setenv
+.I NAME
+.I VALUE
+.SH DESCRIPTION
+The
+.B setenv
+command creates or updates an environment variable with the specified name and value.
+.PP
+Environment variables are stored in the format NAME=VALUE and are available to the shell
+and its child processes.
+.SH OPTIONS
+.TP
+.B NAME
+The name of the environment variable to set or update.
+.TP
+.B VALUE
+The value to assign to the environment variable.
+.SH EXAMPLES
+.TP
+.B setenv EDITOR vim
+Set EDITOR variable to "vim".
+.TP
+.B setenv MYVAR "hello world"
+Set MYVAR variable to "hello world".
+.TP
+.B setenv PATH "/bin:/usr/bin:/usr/local/bin"
+Update PATH variable.
+.SH EXIT STATUS
+Returns 0 on success, 1 on error.
+.SH ERRORS
+Prints "An error has occurred" if:
+.RS
+.IP \(bu 2
+Incorrect number of arguments (must be exactly 2)
+.IP \(bu 2
+Maximum number of environment variables is exceeded
+.RE
+.SH SEE ALSO
+.BR unsetenv (1),
+.BR env (1),
+.BR bash (1)
