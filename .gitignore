@@ -1,0 +1,31 @@
+# Compiled binaries
+shell
+
+# Object files
+*.o
+*.obj
+
+# Debug files
+*.dSYM/
+
+# Core dumps
+core
+core.*
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
